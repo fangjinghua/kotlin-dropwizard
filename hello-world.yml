@@ -1,2 +1,5 @@
 template: Hello, %s!
 defaultName: Stranger
+customMap:
+  first: 1,200
+  second: 2,300

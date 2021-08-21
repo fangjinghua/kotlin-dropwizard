@@ -5,20 +5,24 @@ import javax.ws.rs.Produces
 import javax.ws.rs.core.MediaType
 import java.util.concurrent.atomic.AtomicLong
 import com.codahale.metrics.annotation.Timed
+import com.doomspork.helloworld.HelloWorldConfiguration
 import javax.ws.rs.GET
 import com.google.common.base.Optional
 import javax.ws.rs.QueryParam
 import com.doomspork.helloworld.core.Saying
+import javax.inject.Inject
+import javax.inject.Named
 
 @Path("/hello-world")
 @Produces(MediaType.APPLICATION_JSON)
-class HelloWorldResource(val template: String, val defaultName: String) {
+class HelloWorldResource @Inject constructor(val configuration: HelloWorldConfiguration) {
+
     var counter = AtomicLong()
 
     @Timed
     @GET
     fun sayHello(@QueryParam("name") name: Optional<String>): Saying {
-        val value = java.lang.String.format(template, name.or(defaultName))
+        val value = java.lang.String.format(configuration.template, name.or(configuration.customMap["first"] as String))
         return Saying(counter.incrementAndGet(), value)
     }
 }
