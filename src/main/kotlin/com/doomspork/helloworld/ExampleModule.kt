@@ -1,11 +1,11 @@
-package com.doomspork.helloworld
+package com.doomspork.Example
 
 import com.google.inject.Inject
 import com.google.inject.Provides
 import com.google.inject.name.Named
 import ru.vyarus.dropwizard.guice.module.support.DropwizardAwareModule
 
-class HelloWorldModule : DropwizardAwareModule<HelloWorldConfiguration>() {
+class ExampleModule : DropwizardAwareModule<ExampleConfiguration>() {
     override fun configure() {
         bootstrap()
     }
@@ -13,7 +13,7 @@ class HelloWorldModule : DropwizardAwareModule<HelloWorldConfiguration>() {
     @Provides
     @Inject
     @Named("customMap")
-    fun customMap(configuration: HelloWorldConfiguration) : Map<String, Any>{
+    fun customMap(configuration: ExampleConfiguration) : Map<String, Any>{
         return configuration.customMap
     }
 }

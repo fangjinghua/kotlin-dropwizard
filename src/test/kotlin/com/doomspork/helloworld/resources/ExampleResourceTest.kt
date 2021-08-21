@@ -1,14 +1,14 @@
-package com.doomspork.helloworld.resources
+package com.doomspork.Example.resources
 
-import com.doomspork.helloworld.HelloWorldConfiguration
-import com.doomspork.helloworld.core.Saying
+import com.doomspork.Example.ExampleConfiguration
+import com.doomspork.Example.core.Saying
 import com.google.common.base.Optional
 import org.junit.Test
 import org.junit.Assert.*
 import org.junit.Before
 
-class HelloWorldResourceTest {
-    private var configuration = HelloWorldConfiguration()
+class ExampleResourceTest {
+    private var configuration = ExampleConfiguration()
     @Before
     fun beforeEach() {
         configuration.template = "Hello, %s!"
@@ -21,12 +21,12 @@ class HelloWorldResourceTest {
 
 
         run {
-            val resource=HelloWorldResource(configuration)
+            val resource=ExampleResource(configuration)
             val expected= Saying(id = 1, content = "Hello, later!!");
             assertEquals(resource.sayHello(Optional.absent()), expected)
         }
         run {
-            val resource=HelloWorldResource(configuration)
+            val resource=ExampleResource(configuration)
             val expected= Saying(id = 1, content = "Hello, TEST!");
             assertEquals(resource.sayHello(Optional.of("TEST")), expected)
         }

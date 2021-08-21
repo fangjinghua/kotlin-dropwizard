@@ -1,21 +1,21 @@
-package com.doomspork.helloworld.resources
+package com.doomspork.Example.resources
 
 import javax.ws.rs.Path
 import javax.ws.rs.Produces
 import javax.ws.rs.core.MediaType
 import java.util.concurrent.atomic.AtomicLong
 import com.codahale.metrics.annotation.Timed
-import com.doomspork.helloworld.HelloWorldConfiguration
+import com.doomspork.Example.ExampleConfiguration
 import javax.ws.rs.GET
 import com.google.common.base.Optional
 import javax.ws.rs.QueryParam
-import com.doomspork.helloworld.core.Saying
+import com.doomspork.Example.core.Saying
 import javax.inject.Inject
 import javax.inject.Named
 
 @Path("/hello-world")
 @Produces(MediaType.APPLICATION_JSON)
-class HelloWorldResource @Inject constructor(val configuration: HelloWorldConfiguration) {
+class ExampleResource @Inject constructor(val configuration: ExampleConfiguration) {
 
     var counter = AtomicLong()
 

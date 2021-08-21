@@ -1,4 +1,4 @@
-package com.doomspork.helloworld.health
+package com.doomspork.Example.health
 
 import com.codahale.metrics.health.HealthCheck
 import com.codahale.metrics.health.HealthCheck.Result
