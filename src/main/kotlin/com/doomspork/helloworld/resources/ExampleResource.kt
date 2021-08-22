@@ -15,7 +15,7 @@ import javax.inject.Named
 
 @Path("/hello-world")
 @Produces(MediaType.APPLICATION_JSON)
-class ExampleResource @Inject constructor(val configuration: ExampleConfiguration) {
+class ExampleResource @Inject constructor(private val configuration: ExampleConfiguration) {
 
     var counter = AtomicLong()
 
